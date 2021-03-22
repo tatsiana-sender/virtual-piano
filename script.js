@@ -5,26 +5,28 @@ document.addEventListener("DOMContentLoaded", () => {
     btns[0].onclick = function() {
         btns[1].classList.remove("btn-active");
         this.classList.add("btn-active");
-        for (let i = 0; i < keys.length; i++) { 
+        for (let i = 0; i < keys.length; i++) {
             keys[i].classList.remove("letter");
         }
     }
     btns[1].onclick = function() {
         btns[0].classList.remove("btn-active");
         this.classList.add("btn-active");
-        for (let i = 0; i < keys.length; i++) { 
+        for (let i = 0; i < keys.length; i++) {
             keys[i].classList.add("letter");
         }
     }
     document.onclick = function(event){
         if (event.target.className == 'piano-key' || event.target.className == 'piano-key sharp'){
-            for (let i = 0; i < keys.length; i++) { 
+            for (let i = 0; i < keys.length; i++) {
                 keys[i].classList.remove("piano-key-active");
             }
             event.target.classList.add('piano-key-active');
-        } 
+        }
     }
 
+    //fullScreen
+    
     function fullScreen(element) {
         if(element.requestFullscreen) {
           element.requestFullscreen();
@@ -35,12 +37,12 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
     var html = document.documentElement;
-    var fullscreenEnabled = document.fullscreenEnabled; 
-    
+    var fullscreenEnabled = document.fullscreenEnabled;
+
     fullscreen[0].onclick = function() {
-        
+
         fullScreen(html);
-        if (fullscreenEnabled) {            
+        if (fullscreenEnabled) {
             function cancelFullscreen() {
                 if(document.cancelFullScreen) {
                   document.cancelFullScreen();
@@ -52,9 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
             cancelFullscreen();
         } else {
-            fullScreen(html);    
-        } 
-               
-    }    
+            fullScreen(html);
+        }
+    }
 });
-
